@@ -4,7 +4,6 @@ Aplicação web de gerenciamento de tarefas desenvolvida como projeto prático d
 
 O front-end é feito com **HTML, CSS e JavaScript puros** (sem frameworks), integrado ao **Firebase** pelo SDK modular carregado via CDN.
 
-🔗 **Aplicação publicada:** https://SEU-PROJETO.web.app
 
 ---
 

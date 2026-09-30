@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Minhas Tarefas | Firebase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✅</text></svg>" />
+</head>
+<body>
+
+  <!-- Carregando (enquanto o Firebase verifica a sessão) -->
+  <div id="tela-carregando" class="carregando">Carregando…</div>
+
+  <!-- ========== TELA DE LOGIN / CADASTRO ========== -->
+  <main id="tela-auth" class="auth" hidden>
+    <h1 class="marca">Minhas Tarefas</h1>
+    <p class="subtitulo">Suas tarefas salvas na nuvem e sincronizadas em tempo real.</p>
+
+    <div class="abas" role="tablist">
+      <button id="aba-login" class="aba ativa" role="tab" aria-selected="true">Entrar</button>
+      <button id="aba-cadastro" class="aba" role="tab" aria-selected="false">Criar conta</button>
+    </div>
+
+    <form id="form-auth" class="form-auth" novalidate>
+      <label for="email">E-mail</label>
+      <input id="email" type="email" autocomplete="email" required placeholder="voce@email.com" />
+
+      <label for="senha">Senha</label>
+      <input id="senha" type="password" autocomplete="current-password" required minlength="6" placeholder="Mínimo de 6 caracteres" />
+
+      <p id="msg-auth" class="mensagem" role="alert"></p>
+
+      <button id="btn-auth" type="submit" class="btn-primario">Entrar</button>
+      <button id="btn-esqueci" type="button" class="btn-link">Esqueci minha senha</button>
+    </form>
+  </main>
+
+  <!-- ========== TELA PRINCIPAL (TAREFAS) ========== -->
+  <main id="tela-app" class="app" hidden>
+    <header class="topo">
+      <div>
+        <h1 class="marca marca-pequena">Minhas Tarefas</h1>
+        <p id="usuario-email" class="usuario"></p>
+      </div>
+      <button id="btn-sair" class="btn-secundario">Sair</button>
+    </header>
+
+    <section class="progresso" aria-live="polite">
+      <p id="progresso-texto" class="progresso-texto">0 de 0 concluídas</p>
+      <div class="barra"><div id="barra-preenchida" class="barra-preenchida"></div></div>
+    </section>
+
+    <!-- CREATE -->
+    <form id="form-tarefa" class="form-tarefa">
+      <label for="nova-tarefa" class="sr-only">Nova tarefa</label>
+      <input id="nova-tarefa" type="text" maxlength="200" placeholder="O que você precisa fazer?" autocomplete="off" />
+      <button type="submit" class="btn-primario">Adicionar</button>
+    </form>
+
+    <div class="filtros" role="group" aria-label="Filtrar tarefas">
+      <button class="filtro ativo" data-filtro="todas">Todas</button>
+      <button class="filtro" data-filtro="pendentes">Pendentes</button>
+      <button class="filtro" data-filtro="concluidas">Concluídas</button>
+    </div>
+
+    <!-- READ (tempo real) -->
+    <ul id="lista-tarefas" class="lista"></ul>
+    <p id="lista-vazia" class="vazio" hidden>Nenhuma tarefa aqui. Adicione a primeira no campo acima.</p>
+  </main>
+
+  <!-- O type="module" permite usar import do SDK modular do Firebase -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>

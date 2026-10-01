@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+<<<<<<< HEAD
   <title>Mural de Recados | Firebase</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +19,24 @@
   <main id="tela-auth" class="auth" hidden>
     <h1 class="marca">Mural de Recados</h1>
     <p class="subtitulo">Deixe um recado. Todo mundo vê na hora.</p>
+=======
+  <title>Minhas Tarefas | Firebase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✅</text></svg>" />
+</head>
+<body>
+
+  <!-- Carregando (enquanto o Firebase verifica a sessão) -->
+  <div id="tela-carregando" class="carregando">Carregando…</div>
+
+  <!-- ========== TELA DE LOGIN / CADASTRO ========== -->
+  <main id="tela-auth" class="auth" hidden>
+    <h1 class="marca">Minhas Tarefas</h1>
+    <p class="subtitulo">Suas tarefas salvas na nuvem e sincronizadas em tempo real.</p>
+>>>>>>> cd434c01147b499fceefb0c0ab65e7f8c91f82f5
 
     <div class="abas" role="tablist">
       <button id="aba-login" class="aba ativa" role="tab" aria-selected="true">Entrar</button>
@@ -25,11 +44,14 @@
     </div>
 
     <form id="form-auth" class="form-auth" novalidate>
+<<<<<<< HEAD
       <div id="campo-nome" hidden>
         <label for="nome">Seu nome</label>
         <input id="nome" type="text" maxlength="40" autocomplete="name" placeholder="Como vai aparecer nos recados" />
       </div>
 
+=======
+>>>>>>> cd434c01147b499fceefb0c0ab65e7f8c91f82f5
       <label for="email">E-mail</label>
       <input id="email" type="email" autocomplete="email" required placeholder="voce@email.com" />
 
@@ -43,6 +65,7 @@
     </form>
   </main>
 
+<<<<<<< HEAD
   <!-- ========== MURAL ========== -->
   <main id="tela-app" class="app" hidden>
     <header class="topo">
@@ -74,6 +97,42 @@
     <p id="mural-vazio" class="vazio" hidden>O mural está vazio. Publique o primeiro recado.</p>
   </main>
 
+=======
+  <!-- ========== TELA PRINCIPAL (TAREFAS) ========== -->
+  <main id="tela-app" class="app" hidden>
+    <header class="topo">
+      <div>
+        <h1 class="marca marca-pequena">Minhas Tarefas</h1>
+        <p id="usuario-email" class="usuario"></p>
+      </div>
+      <button id="btn-sair" class="btn-secundario">Sair</button>
+    </header>
+
+    <section class="progresso" aria-live="polite">
+      <p id="progresso-texto" class="progresso-texto">0 de 0 concluídas</p>
+      <div class="barra"><div id="barra-preenchida" class="barra-preenchida"></div></div>
+    </section>
+
+    <!-- CREATE -->
+    <form id="form-tarefa" class="form-tarefa">
+      <label for="nova-tarefa" class="sr-only">Nova tarefa</label>
+      <input id="nova-tarefa" type="text" maxlength="200" placeholder="O que você precisa fazer?" autocomplete="off" />
+      <button type="submit" class="btn-primario">Adicionar</button>
+    </form>
+
+    <div class="filtros" role="group" aria-label="Filtrar tarefas">
+      <button class="filtro ativo" data-filtro="todas">Todas</button>
+      <button class="filtro" data-filtro="pendentes">Pendentes</button>
+      <button class="filtro" data-filtro="concluidas">Concluídas</button>
+    </div>
+
+    <!-- READ (tempo real) -->
+    <ul id="lista-tarefas" class="lista"></ul>
+    <p id="lista-vazia" class="vazio" hidden>Nenhuma tarefa aqui. Adicione a primeira no campo acima.</p>
+  </main>
+
+  <!-- O type="module" permite usar import do SDK modular do Firebase -->
+>>>>>>> cd434c01147b499fceefb0c0ab65e7f8c91f82f5
   <script type="module" src="app.js"></script>
 </body>
 </html>

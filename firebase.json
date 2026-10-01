@@ -3,7 +3,12 @@
     "public": "public",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
   },
+<<<<<<< HEAD
   "database": {
     "rules": "database.rules.json"
+=======
+  "firestore": {
+    "rules": "firestore.rules"
+>>>>>>> cd434c01147b499fceefb0c0ab65e7f8c91f82f5
   }
 }

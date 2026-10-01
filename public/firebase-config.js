@@ -1,8 +1,7 @@
-
 export const firebaseConfig = {
   apiKey: "AIzaSyBzlaJK0InIXb4m568rsBlbS1H_xMHNmtE",
   authDomain: "sophia-f562d.firebaseapp.com",
-  databaseURL: "https://SEU-PROJETO-default-rtdb.firebaseio.com",
+databaseURL: "https://sophia-f562d-default-rtdb.europe-west1.firebasedatabase.app/",
   projectId: "sophia-f562d",
   storageBucket: "sophia-f562d.firebasestorage.app",
   messagingSenderId: "380542794359",

@@ -1,0 +1,30 @@
+{
+  "rules": {
+    "recados": {
+      ".read": "auth != null",
+      ".indexOn": ["criadoEm"],
+      "$recadoId": {
+        ".write": "auth != null && ((!data.exists() && newData.child('autorUid').val() === auth.uid) || (data.exists() && data.child('autorUid').val() === auth.uid))",
+        ".validate": "newData.hasChildren(['texto', 'autorUid', 'autorNome', 'criadoEm'])",
+        "texto": { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 280" },
+        "autorUid": { ".validate": "newData.val() === auth.uid || newData.val() === data.val()" },
+        "autorNome": { ".validate": "newData.isString() && newData.val().length <= 40" },
+        "criadoEm": { ".validate": "newData.isNumber()" },
+        "editadoEm": { ".validate": "newData.isNumber()" },
+        "curtidas": {
+          "$uid": {
+            ".write": "auth != null && auth.uid === $uid",
+            ".validate": "newData.isBoolean()"
+          }
+        },
+        "$outro": { ".validate": false }
+      }
+    },
+    "presenca": {
+      ".read": "auth != null",
+      "$uid": {
+        ".write": "auth != null && auth.uid === $uid"
+      }
+    }
+  }
+}

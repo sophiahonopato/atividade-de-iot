@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mural de Recados | Firebase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&family=Kalam:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📌</text></svg>" />
+</head>
+<body>
+
+  <div id="tela-carregando" class="carregando">Carregando…</div>
+
+  <!-- ========== LOGIN / CADASTRO ========== -->
+  <main id="tela-auth" class="auth" hidden>
+    <h1 class="marca">Mural de Recados</h1>
+    <p class="subtitulo">Deixe um recado. Todo mundo vê na hora.</p>
+
+    <div class="abas" role="tablist">
+      <button id="aba-login" class="aba ativa" role="tab" aria-selected="true">Entrar</button>
+      <button id="aba-cadastro" class="aba" role="tab" aria-selected="false">Criar conta</button>
+    </div>
+
+    <form id="form-auth" class="form-auth" novalidate>
+      <div id="campo-nome" hidden>
+        <label for="nome">Seu nome</label>
+        <input id="nome" type="text" maxlength="40" autocomplete="name" placeholder="Como vai aparecer nos recados" />
+      </div>
+
+      <label for="email">E-mail</label>
+      <input id="email" type="email" autocomplete="email" required placeholder="voce@email.com" />
+
+      <label for="senha">Senha</label>
+      <input id="senha" type="password" autocomplete="current-password" required minlength="6" placeholder="Mínimo de 6 caracteres" />
+
+      <p id="msg-auth" class="mensagem" role="alert"></p>
+
+      <button id="btn-auth" type="submit" class="btn-primario">Entrar</button>
+      <button id="btn-esqueci" type="button" class="btn-link">Esqueci minha senha</button>
+    </form>
+  </main>
+
+  <!-- ========== MURAL ========== -->
+  <main id="tela-app" class="app" hidden>
+    <header class="topo">
+      <div>
+        <h1 class="marca marca-pequena">Mural de Recados</h1>
+        <p class="status">
+          <span id="ponto-conexao" class="ponto"></span>
+          <span id="texto-online">Conectando…</span>
+        </p>
+      </div>
+      <div class="topo-direita">
+        <span id="usuario-nome" class="usuario"></span>
+        <button id="btn-sair" class="btn-secundario">Sair</button>
+      </div>
+    </header>
+
+    <!-- CREATE -->
+    <form id="form-recado" class="form-recado">
+      <label for="texto-recado" class="sr-only">Seu recado</label>
+      <textarea id="texto-recado" maxlength="280" rows="3" placeholder="Escreva um recado para o mural…"></textarea>
+      <div class="form-rodape">
+        <span id="contador" class="contador">0/280</span>
+        <button type="submit" class="btn-primario">Publicar recado</button>
+      </div>
+    </form>
+
+    <!-- READ (tempo real) -->
+    <section id="mural" class="mural" aria-live="polite"></section>
+    <p id="mural-vazio" class="vazio" hidden>O mural está vazio. Publique o primeiro recado.</p>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
